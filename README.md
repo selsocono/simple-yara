@@ -20,29 +20,29 @@ D:\simple-yara\simple-yara-win64.exe --dir=C:\Windows\System32\ --rules=D:\simpl
 
 ## Latest version
 <code>[GO](https://go.dev/dl/)
-</code> - 1.20.6 (latest)
+</code> 1.20.6 (latest)
 
 <code>[YARA](https://github.com/VirusTotal/yara/releases)
-</code> - 4.3.2 (latest)
+</code> 4.3.2 (latest)
 
 <code>[go-yara](https://github.com/hillu/go-yara/tags)
-</code> - 4.3.2 (latest)
+</code> 4.3.2 (latest)
 
 <code>[OPENSSL](https://www.openssl.org/source/)
-</code> - 3.0.9 (latest)
+</code> 3.0.9 (latest)
 
 ## Legacy version (for Windows XP)
 <code>[GO](https://go.dev/dl/)
-</code> - 1.11.4
+</code> 1.11.4
 
 <code>[YARA](https://github.com/VirusTotal/yara/releases)
-</code> - 4.2.0
+</code> 4.2.0
 
 <code>[go-yara](https://github.com/hillu/go-yara/tags)
-</code> - 4.0.4
+</code> 4.0.4
 
 <code>[OPENSSL](https://www.openssl.org/source/)
-</code> - 1.1.1-stable
+</code> 1.1.1-stable
 
 ### Supported operating systems:
 `Windows XP`
