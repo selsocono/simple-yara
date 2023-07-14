@@ -4,7 +4,7 @@ LABEL about="This file is just container..."
 LABEL version="1.0.1"
 LABEL author="@selsocono"
 
-ENV GO=1.20.5
+ENV GO=1.20.6
 ENV OPENSSL=openssl-3.0.9
 ENV YARA_VERSION=v4.3.2
 ENV HILLU=4.3.2

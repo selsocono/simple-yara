@@ -1,4 +1,4 @@
-rule Golang_binaries
+rule golang_binaries
 {
 	strings:
 		$str1 = "fatal error: cgo callback before cgo call"

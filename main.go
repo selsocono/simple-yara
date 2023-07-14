@@ -11,8 +11,8 @@ import (
 
 func main() {
 
-	rules := flag.String("rules", "", `path to file with rules. example: C:\test.yar`)
-	dir := flag.String("dir", "", `path to scan file or directory. example: C:\Windows\System32\calc.exe`)
+	rules := flag.String("rules", "", `path to file with rules. example: C:\test1.yar`)
+	dir := flag.String("dir", "", `path to scan file or directory. example: C:\Windows\System32\`)
 	flag.Parse()
 
 	if *rules == "" || *dir == "" {
@@ -44,13 +44,18 @@ func main() {
 	}
 
 	err = filepath.Walk(*dir, func(path string, info os.FileInfo, err error) error {
+		if err != nil {
+			log.Println(err)
+			return nil
+		}
+
 		if info.IsDir() {
 			return nil
 		}
 
 		file, err := os.Open(path)
 		if err != nil {
-			log.Println(err)
+			//log.Println(err)
 			return nil
 		}
 

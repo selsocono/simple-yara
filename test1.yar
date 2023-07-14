@@ -1,4 +1,4 @@
-#https://www.ptsecurity.com/ru-ru/research/pt-esc-threat-intelligence/apt-cloud-atlas-unbroken-threat/
+//https://www.ptsecurity.com/ru-ru/research/pt-esc-threat-intelligence/apt-cloud-atlas-unbroken-threat/
 
 rule PTESC_exploit_win_ZZ_MalDoc__CVE201711882__Rtf__CA
 {
