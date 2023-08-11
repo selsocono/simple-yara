@@ -7,13 +7,20 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"runtime"
 )
 
 func main() {
 
 	rules := flag.String("rules", "", `path to file with rules. example: C:\test1.yar`)
 	dir := flag.String("dir", "", `path to scan file or directory. example: C:\Windows\System32\`)
+	version := flag.Bool("version", false, "")
 	flag.Parse()
+
+	if *version {
+		log.Printf("Go version: %s\n", runtime.Version())
+		return
+	}
 
 	if *rules == "" || *dir == "" {
 		flag.PrintDefaults()

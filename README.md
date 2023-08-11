@@ -1,5 +1,9 @@
 # simple-yara
 
+[![GitHub license](https://img.shields.io/github/license/selsocono/simple-yara)](https://github.com/selsocono/simple-yara/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/selsocono/simple-yara)](https://github.com/selsocono/simple-yara/stargazers)
+
+
 simple-yara is an open source project that allows you to statically build a simple golang yara scanner for all architectures and all versions of the Windows OS.
 simple-yara is designed to help developers quickly and easily assemble their projects written in golang with the built-in yara engine.
 

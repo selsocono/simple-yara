@@ -1,7 +1,7 @@
 FROM i386/ubuntu:latest
 
 LABEL about="This file is just container..."
-LABEL version="1.0.1"
+LABEL version="2.0.1"
 LABEL author="@selsocono"
 
 ENV GO=1.11.4
@@ -29,7 +29,7 @@ ENV GOMODCACHE=$WORKDIR/build-cache/mod
 WORKDIR $WORKDIR
 
 RUN mkdir -p $BUILDDIR && mkdir -p $DEPSDIR && mkdir -p $DEPSDIR_x32 && mkdir -p $GODIR &&  \
-    mkdir -p /root/go/src/github.com/hillu/go-yara && mkdir -p $GODIR/go/src/golang.org/ &&  mkdir -p $WORKDIR
+    mkdir -p /root/go/src/github.com/hillu/go-yara && mkdir -p $GODIR/go/src/golang.org/ && mkdir -p $WORKDIR
 
 #DEPENDENCES
 RUN apt-get clean && apt-get update && apt-get install -y wget build-essential pkg-config git gcc-multilib  \
@@ -51,20 +51,20 @@ WORKDIR $WORKDIR/${ARCH_x32}-w64-mingw32/yara
 ENV PKG_CONFIG_LIBDIR=$DEPSDIR_x32/lib/pkgconfig
 RUN ./bootstrap.sh
 RUN ./configure CPPFLAGS="$(pkg-config --static --cflags openssl)" LDFLAGS="$(pkg-config --static --libs openssl)"  \
-    --prefix=$DEPSDIR_x32 --host=${ARCH_x32}-w64-mingw32 --disable-shared --with-crypto &&  \
+    --prefix=$DEPSDIR_x32 --host=${ARCH_x32}-w64-mingw32 --disable-shared --with-crypto --enable-dotnet &&  \
     make -j$BUILD_THREADS && make install
 
 #OPENSSL x64
 WORKDIR $WORKDIR/${ARCH}-w64-mingw32/openssl
-RUN ./Configure --prefix=$DEPSDIR --cross-compile-prefix=${ARCH}-w64-mingw32-  \
-    shared $MINGWARCH && make -j$BUILD_THREADS && make install_dev
+RUN ./Configure --prefix=$DEPSDIR --cross-compile-prefix=${ARCH}-w64-mingw32- shared $MINGWARCH &&  \
+    make -j$BUILD_THREADS && make install_dev
 
 #YARA x64
 WORKDIR $WORKDIR/${ARCH}-w64-mingw32/yara
 ENV PKG_CONFIG_LIBDIR=$DEPSDIR/lib/pkgconfig
 RUN ./bootstrap.sh
 RUN ./configure CPPFLAGS="$(pkg-config --static --cflags openssl)" LDFLAGS="$(pkg-config --static --libs openssl)"  \
-    --prefix=$DEPSDIR --host=${ARCH}-w64-mingw32 --disable-shared --with-crypto &&  \
+    --prefix=$DEPSDIR --host=${ARCH}-w64-mingw32 --disable-shared --with-crypto --enable-dotnet &&  \
     make -j$BUILD_THREADS && make install
 
 #GOLANG
